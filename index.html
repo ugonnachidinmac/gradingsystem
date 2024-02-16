@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading System</title>
+    <style>
+        /* CSS styles */
+        #container {
+            width: 300px;
+            margin: 150px auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        #grade {
+            font-weight: lighter;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h3>GRADING SYSTEM</h3>
+        <input type="text" id="score" placeholder="Enter Score"><br>
+        <div id="grade"></div><br>
+        <button onclick="check()">Check</button> 
+        <button onclick="clearGrade()">Clear</button>
+    </div>
+
+    <script>
+        function check() {
+            let score = parseInt(document.getElementById('score').value);
+            let grade = '';
+
+            if (score >= 75 && score <= 100) {
+                grade = 'GRADE = A';
+            } else if (score >= 65 && score <= 74) {
+                grade = 'GRADE = AB';
+            } else if (score >= 55 && score <= 64) {
+                grade = 'GRADE = B';
+            }else if (score >= 45 && score <= 54) {
+                grade = 'GRADE = BC';
+            }else if (score >= 40 && score <= 44) {
+                grade = 'GRADE = C';
+            }else if (score >= 35 && score <= 39) {
+                grade = 'GRADE = D';
+            }else if (score >= 30 && score <= 34) {
+                grade = 'GRADE = F';
+            }else if (score >= 0 && score <= 29) {
+                grade = 'POOR RESULT';
+            }else {
+                grade = 'You don\'t have a score';
+            }
+
+            document.getElementById('grade').innerHTML = grade;
+        }
+
+        function clearGrade() {
+            document.getElementById('grade').innerHTML = '';
+            document.getElementById('score').value = '';
+        }
+    </script>
+</body>
+</html>
